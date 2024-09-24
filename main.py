@@ -64,7 +64,7 @@ async def chat_completions(request: OpenAIRequest):
         vqd4 = resp.headers.get("x-vqd-4")
 
     payload = {
-        "model": "gpt-3.5-turbo-0125",
+        "model": "meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo",
         "messages": [message.dict() for message in request.messages],
     }
 
@@ -136,21 +136,6 @@ async def list_models():
             }
         ],
     }
-
-@app.get("/")
-async def home():
-    return {
-        "object": "list",
-        "data": [
-            {
-                "id": "gpt-3.5-turbo-0125",
-                "object": "model",
-                "created": 1692901427,
-                "owned_by": "system",
-            }
-        ],
-    }
-
 
 
 # To run the app, use `uvicorn main:app --reload`
