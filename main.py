@@ -137,5 +137,20 @@ async def list_models():
         ],
     }
 
+@app.get("/")
+async def home():
+    return {
+        "object": "list",
+        "data": [
+            {
+                "id": "gpt-3.5-turbo-0125",
+                "object": "model",
+                "created": 1692901427,
+                "owned_by": "system",
+            }
+        ],
+    }
+
+
 
 # To run the app, use `uvicorn main:app --reload`
